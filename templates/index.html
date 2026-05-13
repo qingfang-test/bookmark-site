@@ -42,7 +42,6 @@
       margin: 0 auto;
     }
 
-    /* Header */
     .header {
       text-align: center;
       padding: 40px 20px 30px;
@@ -53,12 +52,7 @@
       margin-bottom: 8px;
       text-shadow: 0 2px 4px rgba(0,0,0,.2);
     }
-    .header p {
-      font-size: 1.1em;
-      opacity: 0.9;
-    }
 
-    /* Stats */
     .stats {
       display: flex;
       justify-content: center;
@@ -74,16 +68,9 @@
       color: white;
       text-align: center;
     }
-    .stat-item .num {
-      font-size: 1.8em;
-      font-weight: bold;
-    }
-    .stat-item .label {
-      font-size: 0.85em;
-      opacity: 0.9;
-    }
+    .stat-item .num { font-size: 1.8em; font-weight: bold; }
+    .stat-item .label { font-size: 0.85em; opacity: 0.9; }
 
-    /* Card */
     .card {
       background: white;
       border-radius: var(--radius);
@@ -100,9 +87,7 @@
       align-items: center;
       gap: 8px;
     }
-    .card-title .icon {
-      font-size: 1.3em;
-    }
+    .card-title .icon { font-size: 1.3em; }
     .card-subtitle {
       font-size: 0.85em;
       color: var(--gray-500);
@@ -110,7 +95,6 @@
       margin-left: 8px;
     }
 
-    /* Form elements */
     input[type="text"], input[type="url"], select {
       width: 100%;
       padding: 10px 14px;
@@ -124,10 +108,7 @@
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
     }
-    input[type="file"] {
-      padding: 8px;
-      font-size: 14px;
-    }
+    input[type="file"] { padding: 8px; font-size: 14px; }
 
     .form-grid {
       display: grid;
@@ -137,11 +118,7 @@
     .form-grid.three-col {
       grid-template-columns: 1fr 1fr 1fr;
     }
-    .form-full {
-      grid-column: 1 / -1;
-    }
 
-    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -170,7 +147,6 @@
     .btn-gray { background: var(--gray-400); }
     .btn-gray:hover { background: var(--gray-500); }
     .btn-sm { padding: 6px 12px; font-size: 12px; }
-    .btn-block { width: 100%; }
 
     /* Search bar */
     .search-bar {
@@ -187,8 +163,142 @@
       width: auto;
       min-width: 140px;
     }
+    .search-hint {
+      font-size: 12px;
+      color: var(--gray-400);
+      margin-top: 8px;
+    }
 
-    /* Category chips */
+    /* Category group (collapsible) */
+    .cat-group {
+      margin-bottom: 16px;
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .cat-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: var(--gray-50);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .cat-group-header:hover { background: var(--gray-100); }
+    .cat-group-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+    .cat-group-header-left .arrow {
+      transition: transform 0.2s;
+      font-size: 14px;
+    }
+    .cat-group-header-left .arrow.collapsed {
+      transform: rotate(-90deg);
+    }
+    .cat-group-count {
+      background: var(--primary);
+      color: white;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .cat-group-body {
+      padding: 12px 18px;
+      transition: max-height 0.3s ease;
+    }
+    .cat-group-body.collapsed { display: none; }
+
+    /* Bookmark item */
+    .bm-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      background: white;
+      border: 1px solid var(--gray-100);
+      transition: all 0.2s;
+    }
+    .bm-item:last-child { margin-bottom: 0; }
+    .bm-item:hover {
+      border-color: var(--gray-200);
+      box-shadow: var(--shadow);
+    }
+    .bm-item.hidden { display: none; }
+    .bm-favicon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .bm-info { flex: 1; min-width: 0; }
+    .bm-info-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 2px;
+    }
+    .bm-info-title a {
+      color: var(--gray-800);
+      text-decoration: none;
+    }
+    .bm-info-title a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    .bm-info-url {
+      font-size: 12px;
+      color: var(--gray-400);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bm-actions {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .bm-actions form {
+      margin: 0;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .edit-panel {
+      display: none;
+      margin: 8px 0 8px 46px;
+      padding: 14px;
+      background: var(--gray-50);
+      border-radius: 8px;
+      border: 1px solid var(--gray-200);
+    }
+    .edit-panel.active { display: block; }
+    .edit-panel .form-grid { margin-bottom: 10px; }
+
+    .move-select {
+      width: auto !important;
+      padding: 6px 10px !important;
+      font-size: 12px !important;
+      min-width: 80px;
+    }
+
     .cat-chips {
       display: flex;
       flex-wrap: wrap;
@@ -206,9 +316,7 @@
       color: var(--gray-700);
       transition: background 0.2s;
     }
-    .cat-chip:hover {
-      background: var(--gray-200);
-    }
+    .cat-chip:hover { background: var(--gray-200); }
     .cat-chip .count {
       background: var(--primary);
       color: white;
@@ -217,10 +325,7 @@
       border-radius: 10px;
       font-weight: 600;
     }
-    .cat-chip-actions {
-      display: flex;
-      gap: 4px;
-    }
+    .cat-chip-actions { display: flex; gap: 4px; }
     .cat-chip-actions button {
       background: none;
       border: none;
@@ -230,118 +335,8 @@
       border-radius: 4px;
       transition: background 0.2s;
     }
-    .cat-chip-actions button:hover {
-      background: var(--gray-200);
-    }
+    .cat-chip-actions button:hover { background: var(--gray-200); }
 
-    /* Bookmark list */
-    .bm-list { margin-top: 8px; }
-    .bm-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      background: var(--gray-50);
-      border: 1px solid var(--gray-100);
-      transition: all 0.2s;
-    }
-    .bm-item:hover {
-      background: white;
-      border-color: var(--gray-200);
-      box-shadow: var(--shadow);
-    }
-    .bm-favicon {
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
-      background: var(--gray-200);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-    .bm-info {
-      flex: 1;
-      min-width: 0;
-    }
-    .bm-info-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--gray-800);
-      margin-bottom: 4px;
-    }
-    .bm-info-title a {
-      color: var(--gray-800);
-      text-decoration: none;
-    }
-    .bm-info-title a:hover {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-    .bm-info-url {
-      font-size: 13px;
-      color: var(--gray-400);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .bm-info-meta {
-      display: flex;
-      gap: 10px;
-      margin-top: 4px;
-      font-size: 12px;
-      color: var(--gray-500);
-    }
-    .bm-badge {
-      display: inline-block;
-      background: #ebf4ff;
-      color: #4299e1;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-    .bm-actions {
-      display: flex;
-      gap: 6px;
-      flex-shrink: 0;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    /* Edit form inline */
-    .edit-panel {
-      display: none;
-      margin-top: 12px;
-      padding: 16px;
-      background: var(--gray-50);
-      border-radius: 10px;
-      border: 1px solid var(--gray-200);
-    }
-    .edit-panel.active {
-      display: block;
-    }
-    .edit-panel .form-grid {
-      margin-bottom: 12px;
-    }
-
-    /* Import/Export section */
-    .io-section {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .io-section form {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    /* Category edit modal (inline) */
     .cat-edit-row {
       display: none;
       margin-top: 10px;
@@ -357,26 +352,37 @@
       flex-wrap: wrap;
     }
 
-    /* Move select in actions */
-    .move-select {
-      width: auto !important;
-      padding: 6px 10px !important;
-      font-size: 12px !important;
-      min-width: 80px;
+    .io-section {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .io-section form {
+      display: flex;
+      gap: 8px;
+      align-items: center;
     }
 
-    /* Empty state */
     .empty-state {
       text-align: center;
       padding: 40px 20px;
       color: var(--gray-400);
     }
-    .empty-state .icon {
-      font-size: 3em;
-      margin-bottom: 12px;
-    }
+    .empty-state .icon { font-size: 3em; margin-bottom: 12px; }
 
-    /* Responsive */
+    /* Search result count */
+    .search-result-info {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 10px;
+      display: none;
+    }
+    .search-result-info.active { display: block; }
+
+    /* Hide group when all items hidden */
+    .cat-group.hidden { display: none; }
+
     @media (max-width: 768px) {
       .form-grid { grid-template-columns: 1fr; }
       .form-grid.three-col { grid-template-columns: 1fr; }
@@ -384,7 +390,7 @@
       .stats { gap: 10px; }
       .stat-item { padding: 10px 16px; }
       .bm-item { flex-direction: column; align-items: flex-start; }
-      .bm-actions { width: 100%; justify-content: flex-end; }
+      .bm-actions { width: 100%; justify-content: flex-end; margin-top: 8px; }
       .search-bar { flex-direction: column; }
       .search-bar input[type="text"], .search-bar select { width: 100%; }
     }
@@ -396,7 +402,6 @@
   <!-- Header -->
   <div class="header">
     <h1>📑 书签管理器</h1>
-    <p>轻量、安全，数据保存在服务器数据库中</p>
   </div>
 
   <!-- Stats -->
@@ -411,25 +416,221 @@
     </div>
   </div>
 
-  <!-- Search & Filter -->
+  <!-- 1. Search & Filter -->
   <div class="card">
     <div class="card-title"><span class="icon">🔍</span> 搜索书签</div>
-    <form method="get" action="/" class="search-bar">
-      <input type="text" name="q" placeholder="输入关键字搜索标题或网址..." value="{{ search }}">
-      <select name="cat">
+    <div class="search-bar">
+      <input type="text" id="live-search" placeholder="输入关键字，实时筛选标题和网址..." autofocus>
+      <select id="cat-filter">
         <option value="">全部分类</option>
         {% for c in categories %}
-        <option value="{{ c['id'] }}" {% if selected_cat == c['id']|string %}selected{% endif %}>{{ c['name'] }}</option>
+        <option value="{{ c['id'] }}">{{ c['name'] }}</option>
         {% endfor %}
       </select>
-      <button type="submit" class="btn btn-primary">搜索</button>
-      {% if search or selected_cat %}
-      <a href="/" class="btn btn-gray">清除</a>
-      {% endif %}
-    </form>
+    </div>
+    <div class="search-hint">💡 输入即搜索，无需点击按钮</div>
+    <div class="search-result-info" id="search-result-info"></div>
   </div>
 
-  <!-- Add Bookmark -->
+  <!-- 2. Bookmark List (grouped by category, collapsible) -->
+  <div class="card" id="bookmark-list-card">
+    <div class="card-title">
+      <span class="icon">📋</span> 书签列表
+      <span class="card-subtitle" id="bm-count-label">(共 {{ bookmarks|length }} 条)</span>
+    </div>
+
+    {% set ns = namespace(has_bookmarks=false) %}
+    {% for c in categories %}
+      {% set cat_bookmarks = [] %}
+      {% for b in bookmarks %}
+        {% if b['category_id'] == c['id'] %}
+          {% if cat_bookmarks.append(b) %}{% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if cat_bookmarks|length > 0 %}
+        {% set ns.has_bookmarks = true %}
+        <div class="cat-group" data-cat-id="{{ c['id'] }}">
+          <div class="cat-group-header" onclick="toggleGroup({{ c['id'] }})">
+            <div class="cat-group-header-left">
+              <span class="arrow" id="arrow-{{ c['id'] }}">▼</span>
+              <span>📁 {{ c['name'] }}</span>
+            </div>
+            <span class="cat-group-count" id="count-{{ c['id'] }}">{{ cat_bookmarks|length }}</span>
+          </div>
+          <div class="cat-group-body" id="group-{{ c['id'] }}">
+            {% for b in cat_bookmarks %}
+            <div class="bm-item" data-title="{{ b['title']|lower }}" data-url="{{ b['url']|lower }}" data-cat="{{ c['id'] }}">
+              <div class="bm-favicon">🔗</div>
+              <div class="bm-info">
+                <div class="bm-info-title">
+                  <a href="{{ b['url'] }}" target="_blank" rel="noopener noreferrer">{{ b['title'] }}</a>
+                </div>
+                <div class="bm-info-url">{{ b['url'] }}</div>
+              </div>
+              <div class="bm-actions">
+                <button class="btn btn-gray btn-sm" onclick="toggleEdit({{ b['id'] }})">✏️</button>
+                <form method="post" action="/delete/{{ b['id'] }}">
+                  <button type="submit" class="btn btn-danger btn-sm">🗑️</button>
+                </form>
+                <form method="post" action="/move/{{ b['id'] }}">
+                  <select name="category_id" class="move-select">
+                    {% for cat in categories %}
+                    <option value="{{ cat['id'] }}" {% if b['category_id'] == cat['id'] %}selected{% endif %}>{{ cat['name'] }}</option>
+                    {% endfor %}
+                  </select>
+                  <button type="submit" class="btn btn-warning btn-sm">移动</button>
+                </form>
+              </div>
+            </div>
+            <div class="edit-panel" id="edit-{{ b['id'] }}">
+              <form method="post" action="/edit/{{ b['id'] }}">
+                <div class="form-grid three-col">
+                  <input type="text" name="title" value="{{ b['title'] }}" required>
+                  <input type="text" name="url" value="{{ b['url'] }}" required>
+                  <select name="category_id">
+                    {% for cat in categories %}
+                    <option value="{{ cat['id'] }}" {% if b['category_id'] == cat['id'] %}selected{% endif %}>{{ cat['name'] }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div style="margin-top:10px; display:flex; gap:8px;">
+                  <button type="submit" class="btn btn-primary btn-sm">💾 保存</button>
+                  <button type="button" class="btn btn-gray btn-sm" onclick="toggleEdit({{ b['id'] }})">取消</button>
+                </div>
+              </form>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <!-- Uncategorized bookmarks -->
+    {% set uncat_bookmarks = [] %}
+    {% for b in bookmarks %}
+      {% if b['category_id'] is none %}
+        {% if uncat_bookmarks.append(b) %}{% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if uncat_bookmarks|length > 0 %}
+      {% set ns.has_bookmarks = true %}
+      <div class="cat-group" data-cat-id="uncat">
+        <div class="cat-group-header" onclick="toggleGroup('uncat')">
+          <div class="cat-group-header-left">
+            <span class="arrow" id="arrow-uncat">▼</span>
+            <span>📁 未分类</span>
+          </div>
+          <span class="cat-group-count" id="count-uncat">{{ uncat_bookmarks|length }}</span>
+        </div>
+        <div class="cat-group-body" id="group-uncat">
+          {% for b in uncat_bookmarks %}
+          <div class="bm-item" data-title="{{ b['title']|lower }}" data-url="{{ b['url']|lower }}" data-cat="uncat">
+            <div class="bm-favicon">🔗</div>
+            <div class="bm-info">
+              <div class="bm-info-title">
+                <a href="{{ b['url'] }}" target="_blank" rel="noopener noreferrer">{{ b['title'] }}</a>
+              </div>
+              <div class="bm-info-url">{{ b['url'] }}</div>
+            </div>
+            <div class="bm-actions">
+              <button class="btn btn-gray btn-sm" onclick="toggleEdit({{ b['id'] }})">✏️</button>
+              <form method="post" action="/delete/{{ b['id'] }}">
+                <button type="submit" class="btn btn-danger btn-sm">🗑️</button>
+              </form>
+              <form method="post" action="/move/{{ b['id'] }}">
+                <select name="category_id" class="move-select">
+                  {% for cat in categories %}
+                  <option value="{{ cat['id'] }}" {% if b['category_id'] == cat['id'] %}selected{% endif %}>{{ cat['name'] }}</option>
+                  {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-warning btn-sm">移动</button>
+              </form>
+            </div>
+          </div>
+          <div class="edit-panel" id="edit-{{ b['id'] }}">
+            <form method="post" action="/edit/{{ b['id'] }}">
+              <div class="form-grid three-col">
+                <input type="text" name="title" value="{{ b['title'] }}" required>
+                <input type="text" name="url" value="{{ b['url'] }}" required>
+                <select name="category_id">
+                  {% for cat in categories %}
+                  <option value="{{ cat['id'] }}" {% if b['category_id'] == cat['id'] %}selected{% endif %}>{{ cat['name'] }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div style="margin-top:10px; display:flex; gap:8px;">
+                <button type="submit" class="btn btn-primary btn-sm">💾 保存</button>
+                <button type="button" class="btn btn-gray btn-sm" onclick="toggleEdit({{ b['id'] }})">取消</button>
+              </div>
+            </form>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if not ns.has_bookmarks %}
+    <div class="empty-state">
+      <div class="icon">📭</div>
+      <p>还没有书签，先添加一个试试吧！</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- 3. Import / Export -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📦</span> 导入 / 导出</div>
+    <div class="io-section">
+      <a href="/export" class="btn btn-primary">⬇️ 导出书签 (JSON)</a>
+      <form method="post" action="/import" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".json" required>
+        <button type="submit" class="btn btn-warning">⬆️ 导入书签</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Category Management -->
+  <div class="card">
+    <div class="card-title">
+      <span class="icon">📂</span> 管理分类
+      <span class="card-subtitle">添加、编辑或删除书签分类</span>
+    </div>
+
+    <form method="post" action="/category/add" style="display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;">
+      <input type="text" name="name" placeholder="新分类名称" style="flex:1; min-width:180px;" required>
+      <button type="submit" class="btn btn-success btn-sm">➕ 添加分类</button>
+    </form>
+
+    <div class="cat-chips">
+      {% for c in categories %}
+      <div class="cat-chip">
+        <span>📁 {{ c['name'] }}</span>
+        <span class="count">{{ cat_counts.get(c['id'], 0) }}</span>
+        <div class="cat-chip-actions">
+          <button type="button" onclick="toggleCatEdit({{ c['id'] }})" title="编辑">✏️</button>
+          <form method="post" action="/category/delete/{{ c['id'] }}" style="display:inline;" onsubmit="return confirm('确定删除分类「{{ c['name'] }}」？\n该分类下的书签不会被删除，会变为未分类。');">
+            <button type="submit" title="删除">🗑️</button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% for c in categories %}
+    <div class="cat-edit-row" id="cat-edit-{{ c['id'] }}">
+      <form method="post" action="/category/edit/{{ c['id'] }}" style="display:flex; gap:8px; align-items:center; flex:1; flex-wrap:wrap;">
+        <span style="font-size:14px; color:var(--gray-600);">✏️ 编辑分类名称：</span>
+        <input type="text" name="name" value="{{ c['name'] }}" style="flex:1; min-width:140px;" required>
+        <button type="submit" class="btn btn-primary btn-sm">保存</button>
+        <button type="button" class="btn btn-gray btn-sm" onclick="toggleCatEdit({{ c['id'] }})">取消</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- 5. Add Bookmark -->
   <div class="card">
     <div class="card-title"><span class="icon">➕</span> 添加书签</div>
     <form method="post" action="/add">
@@ -448,142 +649,108 @@
     </form>
   </div>
 
-  <!-- Category Management -->
-  <div class="card">
-    <div class="card-title">
-      <span class="icon">📂</span> 管理分类
-      <span class="card-subtitle">添加、编辑或删除书签分类</span>
-    </div>
-
-    <!-- Add Category -->
-    <form method="post" action="/category/add" style="display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;">
-      <input type="text" name="name" placeholder="新分类名称" style="flex:1; min-width:180px;" required>
-      <button type="submit" class="btn btn-success btn-sm">➕ 添加分类</button>
-    </form>
-
-    <!-- Category list -->
-    <div class="cat-chips">
-      {% for c in categories %}
-      <div class="cat-chip" id="cat-chip-{{ c['id'] }}">
-        <span>📁 {{ c['name'] }}</span>
-        <span class="count">{{ cat_counts.get(c['id'], 0) }}</span>
-        <div class="cat-chip-actions">
-          <button type="button" onclick="toggleCatEdit({{ c['id'] }})" title="编辑">✏️</button>
-          <form method="post" action="/category/delete/{{ c['id'] }}" style="display:inline;" onsubmit="return confirm('确定删除分类「{{ c['name'] }}」？\n该分类下的书签不会被删除，会变为未分类。');">
-            <button type="submit" title="删除">🗑️</button>
-          </form>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-
-    <!-- Category edit rows -->
-    {% for c in categories %}
-    <div class="cat-edit-row" id="cat-edit-{{ c['id'] }}">
-      <form method="post" action="/category/edit/{{ c['id'] }}" style="display:flex; gap:8px; align-items:center; flex:1; flex-wrap:wrap;">
-        <span style="font-size:14px; color:var(--gray-600);">✏️ 编辑分类名称：</span>
-        <input type="text" name="name" value="{{ c['name'] }}" style="flex:1; min-width:140px;" required>
-        <button type="submit" class="btn btn-primary btn-sm">保存</button>
-        <button type="button" class="btn btn-gray btn-sm" onclick="toggleCatEdit({{ c['id'] }})">取消</button>
-      </form>
-    </div>
-    {% endfor %}
-  </div>
-
-  <!-- Import / Export -->
-  <div class="card">
-    <div class="card-title"><span class="icon">📦</span> 导入 / 导出</div>
-    <div class="io-section">
-      <a href="/export" class="btn btn-primary">⬇️ 导出书签 (JSON)</a>
-      <form method="post" action="/import" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".json" required>
-        <button type="submit" class="btn btn-warning">⬆️ 导入书签</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Bookmark List -->
-  <div class="card">
-    <div class="card-title">
-      <span class="icon">📋</span> 书签列表
-      <span class="card-subtitle">(共 {{ bookmarks|length }} 条{{ ' · 搜索: ' + search if search else '' }})</span>
-    </div>
-
-    <div class="bm-list">
-      {% for b in bookmarks %}
-      <div class="bm-item">
-        <div class="bm-favicon">🔗</div>
-        <div class="bm-info">
-          <div class="bm-info-title">
-            <a href="{{ b['url'] }}" target="_blank" rel="noopener noreferrer">{{ b['title'] }}</a>
-          </div>
-          <div class="bm-info-url">{{ b['url'] }}</div>
-          <div class="bm-info-meta">
-            {% if b['category_name'] %}
-            <span class="bm-badge">📁 {{ b['category_name'] }}</span>
-            {% else %}
-            <span class="bm-badge" style="background:#fff5f5; color:#e53e3e;">未分类</span>
-            {% endif %}
-            {% if b['created_at'] %}
-            <span>{{ b['created_at'][:10] }}</span>
-            {% endif %}
-          </div>
-        </div>
-        <div class="bm-actions">
-          <button class="btn btn-gray btn-sm" onclick="toggleEdit({{ b['id'] }})">✏️</button>
-          <form method="post" action="/delete/{{ b['id'] }}" style="margin:0;">
-            <button type="submit" class="btn btn-danger btn-sm">🗑️</button>
-          </form>
-          <form method="post" action="/move/{{ b['id'] }}" style="margin:0; display:flex; gap:4px; align-items:center;">
-            <select name="category_id" class="move-select">
-              {% for c in categories %}
-              <option value="{{ c['id'] }}" {% if b['category_id'] == c['id'] %}selected{% endif %}>{{ c['name'] }}</option>
-              {% endfor %}
-            </select>
-            <button type="submit" class="btn btn-warning btn-sm">移动</button>
-          </form>
-        </div>
-      </div>
-
-      <!-- Edit panel -->
-      <div class="edit-panel" id="edit-{{ b['id'] }}">
-        <form method="post" action="/edit/{{ b['id'] }}">
-          <div class="form-grid three-col">
-            <input type="text" name="title" value="{{ b['title'] }}" required>
-            <input type="text" name="url" value="{{ b['url'] }}" required>
-            <select name="category_id">
-              {% for c in categories %}
-              <option value="{{ c['id'] }}" {% if b['category_id'] == c['id'] %}selected{% endif %}>{{ c['name'] }}</option>
-              {% endfor %}
-            </select>
-          </div>
-          <div style="margin-top:10px; display:flex; gap:8px;">
-            <button type="submit" class="btn btn-primary btn-sm">💾 保存修改</button>
-            <button type="button" class="btn btn-gray btn-sm" onclick="toggleEdit({{ b['id'] }})">取消</button>
-          </div>
-        </form>
-      </div>
-      {% else %}
-      <div class="empty-state">
-        <div class="icon">📭</div>
-        <p>还没有书签，先添加一个试试吧！</p>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-
 </div>
 
 <script>
+// Toggle category group collapse
+function toggleGroup(id) {
+  var body = document.getElementById('group-' + id);
+  var arrow = document.getElementById('arrow-' + id);
+  if (body.classList.contains('collapsed')) {
+    body.classList.remove('collapsed');
+    arrow.classList.remove('collapsed');
+  } else {
+    body.classList.add('collapsed');
+    arrow.classList.add('collapsed');
+  }
+}
+
+// Toggle bookmark edit panel
 function toggleEdit(id) {
   var el = document.getElementById('edit-' + id);
   el.classList.toggle('active');
 }
 
+// Toggle category edit row
 function toggleCatEdit(id) {
   var el = document.getElementById('cat-edit-' + id);
   el.classList.toggle('active');
 }
+
+// ===== Live Search =====
+var searchInput = document.getElementById('live-search');
+var catFilter = document.getElementById('cat-filter');
+var resultInfo = document.getElementById('search-result-info');
+
+function doFilter() {
+  var keyword = searchInput.value.toLowerCase().trim();
+  var selectedCat = catFilter.value;
+
+  var allItems = document.querySelectorAll('.bm-item[data-title]');
+  var visibleCount = 0;
+
+  allItems.forEach(function(item) {
+    var title = item.getAttribute('data-title') || '';
+    var url = item.getAttribute('data-url') || '';
+    var cat = item.getAttribute('data-cat') || '';
+
+    var matchKeyword = !keyword || title.indexOf(keyword) !== -1 || url.indexOf(keyword) !== -1;
+    var matchCat = !selectedCat || cat === selectedCat;
+
+    if (matchKeyword && matchCat) {
+      item.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+
+  // Show/hide category groups based on visible items
+  var groups = document.querySelectorAll('.cat-group');
+  groups.forEach(function(group) {
+    var items = group.querySelectorAll('.bm-item[data-title]');
+    var hasVisible = false;
+    var visibleInGroup = 0;
+
+    items.forEach(function(item) {
+      if (!item.classList.contains('hidden')) {
+        hasVisible = true;
+        visibleInGroup++;
+      }
+    });
+
+    if (hasVisible) {
+      group.classList.remove('hidden');
+      // Update count badge
+      var catId = group.getAttribute('data-cat-id');
+      var countEl = document.getElementById('count-' + catId);
+      if (countEl) {
+        countEl.textContent = visibleInGroup;
+      }
+      // Auto expand when searching
+      if (keyword || selectedCat) {
+        var body = document.getElementById('group-' + catId);
+        var arrow = document.getElementById('arrow-' + catId);
+        if (body) body.classList.remove('collapsed');
+        if (arrow) arrow.classList.remove('collapsed');
+      }
+    } else {
+      group.classList.add('hidden');
+    }
+  });
+
+  // Show result info
+  if (keyword || selectedCat) {
+    resultInfo.textContent = '找到 ' + visibleCount + ' 条匹配书签';
+    resultInfo.classList.add('active');
+  } else {
+    resultInfo.classList.remove('active');
+  }
+}
+
+// Listen to input events (fires on every keystroke)
+searchInput.addEventListener('input', doFilter);
+catFilter.addEventListener('change', doFilter);
 </script>
 </body>
 </html>

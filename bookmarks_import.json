@@ -1,0 +1,545 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "CASE"
+    },
+    {
+      "id": 2,
+      "name": "cisco 官方"
+    },
+    {
+      "id": 3,
+      "name": "lab"
+    },
+    {
+      "id": 4,
+      "name": "license"
+    },
+    {
+      "id": 5,
+      "name": "工具"
+    },
+    {
+      "id": 6,
+      "name": "日常"
+    },
+    {
+      "id": 7,
+      "name": "知识库"
+    }
+  ],
+  "bookmarks": [
+    {
+      "id": 1,
+      "title": "grafana",
+      "url": "http://10.124.49.36:3000/?orgId=1",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 2,
+      "title": "grafana cloud",
+      "url": "https://fangqingwei123.grafana.net/a/cloud-home-app/onboarding-flow/start",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 3,
+      "title": "qingfang DL-cml 20.9 sdwan",
+      "url": "https://10.124.49.28/#/banner",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 4,
+      "title": "qingfang eve New",
+      "url": "http://10.124.49.24/#!/login",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 5,
+      "title": "Anyconnect lab 2",
+      "url": "https://networklessons.com/cisco/asa-firewall/cisco-asa-anyconnect-remote-access-vpn",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 6,
+      "title": "ccie anyconnect lab",
+      "url": "https://www.packetswitch.co.uk/cisco-asa-anyconnect-vpn/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 7,
+      "title": "qingfang cml sdwan",
+      "url": "https://172.18.121.104:12768/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 8,
+      "title": "qingfang RTP sdwan 20.9 多租户",
+      "url": "https://172.18.121.103:12297/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 9,
+      "title": "qingfang 东京sdwan 20.6",
+      "url": "https://10.70.79.140/#/app/dashboard",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 10,
+      "title": "qingfang大连sdwan20.14",
+      "url": "https://10.124.41.101/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 11,
+      "title": "qingfang cml",
+      "url": "https://172.18.121.104:11983/login",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 12,
+      "title": "六哥cml",
+      "url": "https://junnyang-lab.cisco.com/login",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 13,
+      "title": "qingfang eve",
+      "url": "http://10.124.49.59/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 14,
+      "title": "netflow",
+      "url": "http://qingfang:8060/apiclient/ember/index.jsp#/Settings/Discovery/ExportFlow",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 15,
+      "title": "ASR1K license tool",
+      "url": "https://software.cisco.com/software/swift/sltui/viewIntPubKeyGen.action?keytype=PUBLICINTERNAL&subGroup=ASR1KFEAT",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 16,
+      "title": "license local",
+      "url": "https://software.cisco.com/software/swift/lrp/#/devices",
+      "category_id": 4,
+      "created_at": ""
+    },
+    {
+      "id": 17,
+      "title": "Pisces 看代码",
+      "url": "https://wwwin-pisces.cisco.com/search/keyword?defaultFilterLoaded=&lang=all",
+      "category_id": 1,
+      "created_at": ""
+    },
+    {
+      "id": 18,
+      "title": "sdwan token master",
+      "url": "https://token-master.cisco.com/",
+      "category_id": 1,
+      "created_at": ""
+    },
+    {
+      "id": 19,
+      "title": "开bug cdet",
+      "url": "https://cdetsng.cisco.com/webui/#main",
+      "category_id": 1,
+      "created_at": ""
+    },
+    {
+      "id": 20,
+      "title": "RTP 地址转换",
+      "url": "http://172.18.121.107/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 21,
+      "title": "查看on shift engineer and duty manager",
+      "url": "https://schedule.cisco.com/",
+      "category_id": 1,
+      "created_at": ""
+    },
+    {
+      "id": 22,
+      "title": "RDMT",
+      "url": "https://gtcroutingops.cloudapps.cisco.com/RDMT/",
+      "category_id": 1,
+      "created_at": ""
+    },
+    {
+      "id": 23,
+      "title": "CCWR",
+      "url": "https://ccrc.cisco.com/ccwr/",
+      "category_id": 1,
+      "created_at": ""
+    },
+    {
+      "id": 24,
+      "title": "RMA",
+      "url": "https://ibpm.cisco.com/rma/home/",
+      "category_id": 1,
+      "created_at": ""
+    },
+    {
+      "id": 25,
+      "title": "cisco pnp device",
+      "url": "https://software.cisco.com/software/pnp/devices",
+      "category_id": 4,
+      "created_at": ""
+    },
+    {
+      "id": 26,
+      "title": "cisco gpt",
+      "url": "https://onesearch.cisco.com/ciscoit/chatgpt/home",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 27,
+      "title": "cisco box",
+      "url": "https://cisco.app.box.com/folder/0",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 28,
+      "title": "IOS-XE EFA check",
+      "url": "https://www-plmprd.cisco.com/Agile/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 29,
+      "title": "IOS-XE CCO update 更新时间",
+      "url": "https://wiki.cisco.com/display/RELENG/Polaris+XE17.6.6+Release",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 30,
+      "title": "IOS-XE smart decoder",
+      "url": "https://smartdecoder.cisco.com/",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 31,
+      "title": "working 权限申请",
+      "url": "https://edsart.cloudapps.cisco.com/myAccess",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 32,
+      "title": "模块兼容性",
+      "url": "https://tmgmatrix.cisco.com/?dr=1",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 33,
+      "title": "cve漏洞查询",
+      "url": "https://tools.cisco.com/security/center/cvr",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 34,
+      "title": "SNMP OID",
+      "url": "https://snmp.cloudapps.cisco.com/Support/SNMP/do/BrowseOID.do?local=en",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 35,
+      "title": "画图",
+      "url": "https://asciiflow.com/#/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 36,
+      "title": "PNP account",
+      "url": "https://software.cisco.com/software/csws/ws/platform/home#pnp-devices",
+      "category_id": 4,
+      "created_at": ""
+    },
+    {
+      "id": 37,
+      "title": "CSSM smart license account",
+      "url": "https://software.cisco.com/software/csws/ws/platform/home?locale=en_US",
+      "category_id": 4,
+      "created_at": ""
+    },
+    {
+      "id": 38,
+      "title": "IOS-XE software download",
+      "url": "https://software.cisco.com/download/home",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 39,
+      "title": "xr techzone",
+      "url": "https://scripts.cisco.com/app/RP_Techzone/",
+      "category_id": 7,
+      "created_at": ""
+    },
+    {
+      "id": 40,
+      "title": "Github",
+      "url": "https://github.com/dnGrep/dnGrep/releases/tag/v4.2.121.0",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 41,
+      "title": "Directory",
+      "url": "https://directory.cisco.com/find-people/search",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 42,
+      "title": "cisco 开case",
+      "url": "https://mycase.cloudapps.cisco.com/case",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 43,
+      "title": "Team shift",
+      "url": "https://shifts.cisco.com/APT-GC-RP1/schedule?date=2026-05-13&all_sources=true&weeks=1",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 44,
+      "title": "排班表",
+      "url": "https://scripts.cisco.com/app/gcrpshift/#/",
+      "category_id": 6,
+      "created_at": ""
+    },
+    {
+      "id": 45,
+      "title": "dlsp 加班申请",
+      "url": "http://dlsp.5work.com/om/login.aspx",
+      "category_id": 6,
+      "created_at": ""
+    },
+    {
+      "id": 46,
+      "title": "我的视频库",
+      "url": "http://10.124.49.67:8096/web/#/home",
+      "category_id": 7,
+      "created_at": ""
+    },
+    {
+      "id": 47,
+      "title": "techzone",
+      "url": "https://techzone.cisco.com/",
+      "category_id": 7,
+      "created_at": ""
+    },
+    {
+      "id": 48,
+      "title": "overwatch 订阅",
+      "url": "https://scripts.cisco.com/app/overwatch_c4c/",
+      "category_id": 1,
+      "created_at": ""
+    },
+    {
+      "id": 49,
+      "title": "xingxu 博客",
+      "url": "https://imxing.info/",
+      "category_id": 7,
+      "created_at": ""
+    },
+    {
+      "id": 50,
+      "title": "软件版本进度查询",
+      "url": "https://wwwin-irt.cisco.com/trainstation/jmp?&-p=polaris",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 51,
+      "title": "deventsandbox",
+      "url": "https://devnetsandbox.cisco.com/DevNet",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 52,
+      "title": "video  cast",
+      "url": "https://app.vidcast.io/",
+      "category_id": 7,
+      "created_at": ""
+    },
+    {
+      "id": 53,
+      "title": "Devnet NSO lab",
+      "url": "https://developer.cisco.com/learning/tracks/get_started_with_nso/nso-labs/learn-nso-with-netsim/setting-up-nso/",
+      "category_id": 7,
+      "created_at": ""
+    },
+    {
+      "id": 54,
+      "title": "GISO",
+      "url": "https://pims-web.cisco.com/pims-home/fcgi-bin/CCTReport/CCTOtherReports.cgi?menu=golden_iso_menu",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 55,
+      "title": "cisco live",
+      "url": "https://www.ciscolive.com/on-demand/on-demand-library.html#/",
+      "category_id": 7,
+      "created_at": ""
+    },
+    {
+      "id": 56,
+      "title": "路由产品性能对比",
+      "url": "https://ccapp.cisco.com/routing-scale",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 57,
+      "title": "sdwan 升级步骤查看",
+      "url": "https://www.cisco.com/c/dam/en/us/td/docs/Website/enterprise/catalyst-sdwan-upgrade-matrix/index.html",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 58,
+      "title": "兼容性sdwan compatibility",
+      "url": "https://www.cisco.com/c/dam/en/us/td/docs/Website/enterprise/catalyst_sdwan_compatibility_matrix/index.html",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 59,
+      "title": "packet dump decode",
+      "url": "https://hpd.gasmi.net/",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 60,
+      "title": "时差查看网站",
+      "url": "https://www.timebie.com/cn/beijingnewyork.php",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 61,
+      "title": "cisco 官方holiday",
+      "url": "https://www.cisco.com/c/r/team-development/benefits/china/en/holidays-shutdown.html",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 62,
+      "title": "snmp mib owner",
+      "url": "https://wiki.cisco.com/display/MANAGE/IOS%20MIB%20Owners",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 63,
+      "title": "wwwin",
+      "url": "https://wwwin.cisco.com/c/cec/bridge.html/home",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 64,
+      "title": "epc packet decode",
+      "url": "https://cway.cisco.com/capture-gen-analyzer/",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 65,
+      "title": "Tac SR collection",
+      "url": "https://community.cisco.com/t5/tkb-tac-tips-%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88/%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F%E3%81%A8%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95-tac-sr-collection/ta-p/3215391",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 66,
+      "title": "AutoPod",
+      "url": "https://cx-labs.cisco.com/pods",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 67,
+      "title": "XE root shell",
+      "url": "https://sso-dbbfec7f.sso.duosecurity.com/oidc/DITJRYR8FIQ64ARR2V46/authorize?client_id=DITJRYR8FIQ64ARR2V46&response_type=code&scope=openid+offline_access+pr",
+      "category_id": 5,
+      "created_at": ""
+    },
+    {
+      "id": 68,
+      "title": "CALO",
+      "url": "https://calo-new.cisco.com/#/tools/lab_cases",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 69,
+      "title": "qingfang ISE",
+      "url": "https://10.124.49.58/",
+      "category_id": 3,
+      "created_at": ""
+    },
+    {
+      "id": 70,
+      "title": "Topic",
+      "url": "https://topic.cisco.com/home",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 71,
+      "title": "ECDP 查看销售 htom",
+      "url": "https://ecdp.cisco.com/httsmd#/",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 72,
+      "title": "Pisces 看代码",
+      "url": "https://wwwin-pisces.cisco.com/search/keyword?defaultFilterLoaded=&lang=all",
+      "category_id": 2,
+      "created_at": ""
+    },
+    {
+      "id": 73,
+      "title": "开bug cdet",
+      "url": "https://cdetsng.cisco.com/webui/#main",
+      "category_id": 2,
+      "created_at": ""
+    }
+  ]
+}

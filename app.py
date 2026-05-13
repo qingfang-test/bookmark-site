@@ -2,7 +2,7 @@ import os
 import json
 import sqlite3
 from contextlib import closing
-from flask import Flask, render_template, request, redirect, url_for, Response, flash
+from flask import Flask, render_template, request, redirect, url_for, Response
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "bookmark-secret-key-2024")
@@ -237,6 +237,27 @@ def export_bookmarks():
     )
 
 
+def get_or_create_category(conn, name):
+    """Get category id by name, create if not exists."""
+    if not name:
+        return None
+    name = name.strip()
+    if not name:
+        return None
+
+    existing = conn.execute(
+        "SELECT id FROM categories WHERE name = ?", (name,)
+    ).fetchone()
+
+    if existing:
+        return existing["id"]
+    else:
+        cursor = conn.execute(
+            "INSERT INTO categories (name) VALUES (?)", (name,)
+        )
+        return cursor.lastrowid
+
+
 @app.route("/import", methods=["POST"])
 def import_bookmarks():
     file = request.files.get("file")
@@ -249,39 +270,49 @@ def import_bookmarks():
         return redirect(url_for("index"))
 
     with closing(get_conn()) as conn:
-        cat_id_map = {}
-        for cat in data.get("categories", []):
-            old_id = cat.get("id")
-            name = cat.get("name", "").strip()
-            if not name:
-                continue
 
-            existing = conn.execute(
-                "SELECT id FROM categories WHERE name = ?", (name,)
-            ).fetchone()
+        # ===== Format A: New format (dict with "categories" and "bookmarks" keys) =====
+        if isinstance(data, dict) and "bookmarks" in data:
+            cat_id_map = {}
+            for cat in data.get("categories", []):
+                old_id = cat.get("id")
+                name = cat.get("name", "").strip()
+                if not name:
+                    continue
+                new_id = get_or_create_category(conn, name)
+                cat_id_map[old_id] = new_id
 
-            if existing:
-                cat_id_map[old_id] = existing["id"]
-            else:
-                cursor = conn.execute(
-                    "INSERT INTO categories (name) VALUES (?)", (name,)
+            for bm in data.get("bookmarks", []):
+                title = bm.get("title", "").strip()
+                url = bm.get("url", "").strip()
+                old_cat_id = bm.get("category_id")
+
+                if not title or not url:
+                    continue
+
+                new_cat_id = cat_id_map.get(old_cat_id) if old_cat_id else None
+
+                conn.execute(
+                    "INSERT INTO bookmarks (title, url, category_id) VALUES (?, ?, ?)",
+                    (title, url, new_cat_id),
                 )
-                cat_id_map[old_id] = cursor.lastrowid
 
-        for bm in data.get("bookmarks", []):
-            title = bm.get("title", "").strip()
-            url = bm.get("url", "").strip()
-            old_cat_id = bm.get("category_id")
+        # ===== Format B: Old format (list of objects with "name", "url", "category") =====
+        elif isinstance(data, list):
+            for item in data:
+                title = item.get("name", "").strip() or item.get("title", "").strip()
+                url = item.get("url", "").strip()
+                category_name = item.get("category", "").strip()
 
-            if not title or not url:
-                continue
+                if not title or not url:
+                    continue
 
-            new_cat_id = cat_id_map.get(old_cat_id) if old_cat_id else None
+                cat_id = get_or_create_category(conn, category_name)
 
-            conn.execute(
-                "INSERT INTO bookmarks (title, url, category_id) VALUES (?, ?, ?)",
-                (title, url, new_cat_id),
-            )
+                conn.execute(
+                    "INSERT INTO bookmarks (title, url, category_id) VALUES (?, ?, ?)",
+                    (title, url, cat_id),
+                )
 
         conn.commit()
 
