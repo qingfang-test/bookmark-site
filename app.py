@@ -2,9 +2,10 @@ import os
 import json
 import sqlite3
 from contextlib import closing
-from flask import Flask, render_template, request, redirect, url_for, jsonify, Response
+from flask import Flask, render_template, request, redirect, url_for, Response, flash
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY", "bookmark-secret-key-2024")
 DB_PATH = os.getenv("DB_PATH", "/data/bookmarks.db")
 
 
@@ -35,7 +36,6 @@ def init_db():
                 FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
             )
         """)
-        # Insert default category if none exists
         existing = conn.execute("SELECT COUNT(*) as cnt FROM categories").fetchone()
         if existing["cnt"] == 0:
             conn.execute("INSERT INTO categories (name) VALUES (?)", ("未分类",))
@@ -54,7 +54,8 @@ def index():
             "SELECT id, name FROM categories ORDER BY id"
         ).fetchall()
 
-        query = "SELECT b.id, b.title, b.url, b.category_id, c.name as category_name FROM bookmarks b LEFT JOIN categories c ON b.category_id = c.id"
+        query = """SELECT b.id, b.title, b.url, b.category_id, c.name as category_name, b.created_at
+                   FROM bookmarks b LEFT JOIN categories c ON b.category_id = c.id"""
         conditions = []
         params = []
 
@@ -72,11 +73,20 @@ def index():
         query += " ORDER BY b.id DESC"
         bookmarks = conn.execute(query, params).fetchall()
 
+        # Count bookmarks per category
+        cat_counts = {}
+        all_bm = conn.execute("SELECT category_id FROM bookmarks").fetchall()
+        for bm in all_bm:
+            cid = bm["category_id"]
+            cat_counts[cid] = cat_counts.get(cid, 0) + 1
+
     return render_template("index.html",
                            bookmarks=bookmarks,
                            categories=categories,
+                           cat_counts=cat_counts,
                            search=search,
-                           selected_cat=category_id)
+                           selected_cat=category_id,
+                           total_count=len(all_bm))
 
 
 # ============ Bookmark CRUD ============
@@ -165,7 +175,7 @@ def add_category():
             conn.execute("INSERT INTO categories (name) VALUES (?)", (name,))
             conn.commit()
         except sqlite3.IntegrityError:
-            pass  # duplicate name, ignore
+            pass
 
     return redirect(url_for("index"))
 
@@ -189,7 +199,6 @@ def edit_category(cat_id):
 @app.route("/category/delete/<int:cat_id>", methods=["POST"])
 def delete_category(cat_id):
     with closing(get_conn()) as conn:
-        # Bookmarks in this category will have category_id set to NULL (ON DELETE SET NULL)
         conn.execute("DELETE FROM categories WHERE id = ?", (cat_id,))
         conn.commit()
 
@@ -240,8 +249,7 @@ def import_bookmarks():
         return redirect(url_for("index"))
 
     with closing(get_conn()) as conn:
-        # Import categories
-        cat_id_map = {}  # old_id -> new_id
+        cat_id_map = {}
         for cat in data.get("categories", []):
             old_id = cat.get("id")
             name = cat.get("name", "").strip()
@@ -260,7 +268,6 @@ def import_bookmarks():
                 )
                 cat_id_map[old_id] = cursor.lastrowid
 
-        # Import bookmarks
         for bm in data.get("bookmarks", []):
             title = bm.get("title", "").strip()
             url = bm.get("url", "").strip()
